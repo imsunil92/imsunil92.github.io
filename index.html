@@ -1,0 +1,624 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>Sunil Kumar</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Network engineer with 6+ years in ISP support on FWA and FTTH networks: fast troubleshooting, wireless link maintenance and network documentation.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://imsunil92.github.io/">
+<meta property="og:title" content="Sunil Kumar · Network Engineer">
+<meta property="og:description" content="Network engineer with 6+ years in ISP support on FWA and FTTH networks: fast troubleshooting, wireless link maintenance and network documentation.">
+<meta property="og:image" content="https://imsunil92.github.io/og-image-v4.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+<meta property="og:image:alt" content="Sunil Kumar, Network Engineer: networks that stay up, problems solved in minutes.">
+<meta name="twitter:card" content="summary_large_image">
+<script>try{var _t=localStorage.getItem("sk-theme");if(_t==="light"||_t==="dark")document.documentElement.setAttribute("data-theme",_t);}catch(e){}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Layout: minimal product-page rhythm. Full-width bands alternating white / soft grey,
+   centered 980px column, oversized headlines, one dark "device" showing a live NOC dashboard. */
+:root {
+  --bg: #ffffff;
+  --band: #f5f5f7;
+  --tile: #ffffff;
+  --fg: #1d1d1f;
+  --muted: #6e6e73;
+  --soft: #86868b;
+  --line: #d2d2d7;
+  --accent: #0066cc;
+  --accent-fg: #ffffff;
+  --deco: #0071e3;
+  --deco-2: #0fa3a3;
+  --deco-line: rgba(29,29,31,.10);
+  --dev-frame: #e8e8ed; --dev-screen: #ffffff; --dev-line: #e5e5ea; --dev-line2: #d2d2d7; --dev-muted: #6e6e73; --dev-fg2: #3a3a3c; --dev-fg: #1d1d1f; --dev-card: #f5f5f7; --dev-inset: #fafafc; --dev-soft: #86868b; --dev-track2: #c7c7cc; --cap-bg: #ffffff; --cap-tile: #f5f5f7; --cap-border: transparent; --rack-body: #f2f2f5; --rack-stroke: #aeaeb2; --rack-u: #ffffff; --rack-ustroke: #c7c7cc; --rack-vent: #aeaeb2; --rack-led: #16a34a; --rack-led2: #0066cc; --dev-ok-text: #1a7f4b; --dev-link-text: #0071a4; --dev-shadow: 0 30px 70px -35px rgba(0,0,0,.28), 0 0 100px -30px color-mix(in srgb, var(--deco) 30%, transparent), 0 0 0 1px rgba(0,0,0,.05) inset;
+  --f-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", "Segoe UI", Arial, sans-serif;
+  --f-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #000000; --band: #0d0d0f; --tile: #161618; --fg: #f5f5f7; --muted: #a1a1a6; --soft: #86868b;
+    --line: #2e2e32; --accent: #2997ff; --accent-fg: #ffffff; --deco: #2997ff; --deco-2: #3fd8c6; --deco-line: rgba(245,245,247,.10); --dev-frame: #0b0d12; --dev-screen: #10141c; --dev-line: #1f2633; --dev-line2: #2a3242; --dev-muted: #8b97ab; --dev-fg2: #c9d3e3; --dev-fg: #e8edf5; --dev-card: #161c27; --dev-inset: #0b0f16; --dev-soft: #6b778c; --dev-track2: #3a4456; --cap-bg: #000; --cap-tile: #131316; --cap-border: #1f1f24; --rack-body: #14171d; --rack-stroke: color-mix(in srgb, #f5f5f7 40%, #14171d); --rack-u: #222834; --rack-ustroke: #333b4a; --rack-vent: #4a5366; --rack-led: #30d158; --rack-led2: #2997ff; --dev-ok-text: #6ee7b7; --dev-link-text: #64d2ff; --dev-shadow: 0 40px 90px -30px rgba(0,0,0,.5), 0 0 120px -20px color-mix(in srgb, var(--deco) 55%, transparent), 0 0 0 1px rgba(255,255,255,.08) inset; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #000000; --band: #0d0d0f; --tile: #161618; --fg: #f5f5f7; --muted: #a1a1a6; --soft: #86868b;
+  --line: #2e2e32; --accent: #2997ff; --accent-fg: #ffffff; --deco: #2997ff; --deco-2: #3fd8c6; --deco-line: rgba(245,245,247,.10); --dev-frame: #0b0d12; --dev-screen: #10141c; --dev-line: #1f2633; --dev-line2: #2a3242; --dev-muted: #8b97ab; --dev-fg2: #c9d3e3; --dev-fg: #e8edf5; --dev-card: #161c27; --dev-inset: #0b0f16; --dev-soft: #6b778c; --dev-track2: #3a4456; --cap-bg: #000; --cap-tile: #131316; --cap-border: #1f1f24; --rack-body: #14171d; --rack-stroke: color-mix(in srgb, #f5f5f7 40%, #14171d); --rack-u: #222834; --rack-ustroke: #333b4a; --rack-vent: #4a5366; --rack-led: #30d158; --rack-led2: #2997ff; --dev-ok-text: #6ee7b7; --dev-link-text: #64d2ff; --dev-shadow: 0 40px 90px -30px rgba(0,0,0,.5), 0 0 120px -20px color-mix(in srgb, var(--deco) 55%, transparent), 0 0 0 1px rgba(255,255,255,.08) inset; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 400 17px/1.47 var(--f-sans); letter-spacing: -0.012em; -webkit-font-smoothing: antialiased; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--bg); }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+:root:not(.lang-it) [data-l="it"] { display: none !important; }
+:root.lang-it [data-l="en"] { display: none !important; }
+h1, h2, h3 { margin: 0; text-wrap: balance; }
+p { margin: 0; }
+.col { max-width: 980px; margin: 0 auto; padding-left: max(22px, env(safe-area-inset-left, 0px)); padding-right: max(22px, env(safe-area-inset-right, 0px)); }
+.band { padding-block: 110px; }
+.band.grey { background: var(--band); }
+.eyebrow { font-size: 19px; font-weight: 600; color: var(--soft); letter-spacing: -0.01em; }
+.h2 { font-size: clamp(36px, 6vw, 64px); line-height: 1.06; font-weight: 700; letter-spacing: -0.035em; margin-top: 8px; }
+.h2 .dim { color: var(--soft); }
+.lead { font-size: clamp(19px, 2.2vw, 24px); line-height: 1.38; color: var(--muted); font-weight: 500; max-width: 34em; margin-top: 22px; letter-spacing: -0.015em; }
+
+/* nav */
+.nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: color-mix(in srgb, var(--bg) 78%, transparent); backdrop-filter: saturate(180%) blur(20px); -webkit-backdrop-filter: saturate(180%) blur(20px); border-bottom: 1px solid color-mix(in srgb, var(--line) 60%, transparent); }
+.nav .col { display: flex; align-items: center; gap: 28px; height: 48px; }
+.nav .name { font-weight: 600; font-size: 15px; color: var(--fg); text-decoration: none; }
+.nav .links { display: flex; gap: 26px; margin-left: auto; }
+.nav .links a { font-size: 12.5px; color: var(--fg); opacity: .8; }
+.nav .links a:hover { opacity: 1; text-decoration: none; }
+.lang { display: flex; gap: 2px; font-size: 12px; }
+.lang button { border: 0; background: none; color: var(--soft); font: 600 12px var(--f-sans); padding: 4px 6px; border-radius: 6px; cursor: pointer; }
+.lang button[aria-pressed="true"] { color: var(--fg); background: color-mix(in srgb, var(--fg) 8%, transparent); }
+.theme-btn { flex: none; width: 30px; height: 30px; border-radius: 50%; border: 0; background: transparent; color: var(--fg); display: grid; place-items: center; cursor: pointer; opacity: .8; margin-left: -12px; }
+.theme-btn:hover { opacity: 1; background: color-mix(in srgb, var(--fg) 8%, transparent); }
+.theme-btn svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.theme-btn .i-moon { fill: currentColor; stroke: none; }
+.theme-btn .i-sun { display: none; }
+:root[data-theme="dark"] .theme-btn .i-sun { display: block; } :root[data-theme="dark"] .theme-btn .i-moon { display: none; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .theme-btn .i-sun { display: block; } :root:not([data-theme="light"]) .theme-btn .i-moon { display: none; } }
+@media (max-width: 760px) { .nav .links { display: none; } .lang { margin-left: auto; } }
+
+/* hero */
+.hero { padding-block: 84px 40px; text-align: center; }
+.hero .who { display: inline-flex; align-items: center; gap: 10px; font-size: 15px; color: var(--muted); font-weight: 500; }
+@media (max-width: 480px) { .hero .who { font-size: 12.5px; gap: 8px; } }
+.hero .who i { width: 8px; height: 8px; border-radius: 50%; background: #30d158; box-shadow: 0 0 0 4px rgba(48,209,88,.18); }
+.hero h1 { font-size: clamp(46px, 9vw, 104px); line-height: 1.02; font-weight: 700; letter-spacing: -0.045em; margin-top: 18px; }
+.hero h1 .dim { color: var(--soft); display: block; }
+.hero .lead { margin: 26px auto 0; }
+.hero .lead strong { color: var(--fg); font-weight: 600; }
+.ctas { display: flex; gap: 14px 28px; justify-content: center; align-items: center; flex-wrap: wrap; margin-top: 34px; }
+.pill { display: inline-flex; align-items: center; background: var(--accent); color: var(--accent-fg); font-size: 17px; font-weight: 500; padding: 12px 24px; border-radius: 980px; }
+.pill:hover { text-decoration: none; filter: brightness(1.08); }
+.more { font-size: 17px; }
+.more::after { content: " ›"; }
+
+/* device */
+.device-wrap { padding-block: 40px 100px; }
+.device { max-width: 760px; margin: 0 auto; background: var(--dev-frame); border-radius: 30px; padding: 12px; box-shadow: var(--dev-shadow); }
+.screen { border-radius: 20px; background: var(--dev-screen); color: var(--dev-fg); overflow: hidden; border: 1px solid var(--dev-line); }
+.sc-head { display: flex; align-items: center; gap: 10px; padding: 12px 16px; border-bottom: 1px solid var(--dev-line); font: 500 12.5px var(--f-mono); color: var(--dev-muted); }
+.sc-head .dots { display: flex; gap: 6px; } .sc-head .dots i { width: 10px; height: 10px; border-radius: 50%; background: var(--dev-line2); display: block; }
+.sc-head .up { margin-left: auto; display: flex; align-items: center; gap: 8px; color: var(--dev-fg2); }
+.sc-head .up i { width: 8px; height: 8px; border-radius: 50%; background: #3ecf8e; box-shadow: 0 0 0 3px rgba(62,207,142,.18); }
+.sc-body { padding: 16px; display: grid; gap: 14px; }
+.kp { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.kp div { background: var(--dev-card); border-radius: 12px; padding: 12px 14px; min-width: 0; }
+.kp span { display: block; font: 500 10.5px var(--f-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--dev-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.kp b { display: block; font-size: 26px; font-weight: 700; letter-spacing: -0.03em; margin-top: 2px; font-variant-numeric: tabular-nums; }
+.kp b small { font: 500 12px var(--f-mono); color: var(--dev-muted); margin-left: 3px; letter-spacing: 0; }
+.chart { position: relative; background: var(--dev-inset); border: 1px solid var(--dev-line); border-radius: 12px; }
+#tp { display: block; width: 100%; height: 150px; }
+.chart .lg { position: absolute; top: 9px; left: 12px; display: flex; gap: 14px; font: 500 10.5px var(--f-mono); color: var(--dev-muted); }
+.chart .lg i { display: inline-block; width: 12px; height: 2px; vertical-align: middle; margin-right: 6px; }
+.chart .demo { position: absolute; top: 9px; right: 12px; font: 500 10px var(--f-mono); color: var(--dev-soft); letter-spacing: .06em; text-transform: uppercase; }
+.lk { list-style: none; margin: 0; padding: 0; }
+.lk li { display: grid; grid-template-columns: 8px minmax(0,1fr) auto auto; gap: 12px; align-items: center; padding: 9px 4px; border-top: 1px solid var(--dev-line); font: 500 12.5px var(--f-mono); }
+.lk li:first-child { border-top: 0; }
+.lk .s { width: 8px; height: 8px; border-radius: 50%; background: #30d158; }
+.lk .n { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.lk .t { font-size: 10.5px; color: var(--dev-muted); border: 1px solid var(--dev-line2); border-radius: 6px; padding: 2px 7px; }
+.lk .v { color: var(--dev-muted); min-width: 76px; text-align: right; font-variant-numeric: tabular-nums; }
+.caption { text-align: center; color: var(--soft); font-size: 13px; margin-top: 16px; }
+
+/* status page */
+.svc { background: var(--dev-inset); border: 1px solid var(--dev-line); border-radius: 12px; padding: 12px 14px 10px; display: grid; gap: 9px; }
+.srow { display: grid; grid-template-columns: 112px minmax(0, 1fr) 54px; gap: 12px; align-items: center; }
+.sname { font: 500 12px var(--f-sans); color: var(--dev-fg2); display: flex; align-items: center; gap: 7px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.sname i { width: 7px; height: 7px; border-radius: 50%; background: #3ecf8e; flex: none; }
+.bars { display: block; width: 100%; height: 22px; }
+.bars .ok { fill: #3ecf8e; opacity: .5; } .bars .minor { fill: #3ecf8e; opacity: .22; } .bars .inc { fill: #f5a524; opacity: .95; }
+.spct { font: 500 11.5px var(--f-mono); color: var(--dev-muted); text-align: right; font-variant-numeric: tabular-nums; }
+.sax { display: flex; justify-content: space-between; font: 500 10px var(--f-mono); color: var(--dev-soft); padding-left: 124px; padding-right: 66px; }
+.sax .demo { letter-spacing: .06em; text-transform: uppercase; }
+.inc { background: var(--dev-card); border-radius: 12px; padding: 14px 16px; }
+.inc-top { display: flex; justify-content: space-between; gap: 12px; align-items: center; }
+.inc-top b { font: 600 13.5px var(--f-sans); color: var(--dev-fg); }
+.res { font: 600 11px var(--f-sans); color: var(--dev-ok-text); background: rgba(62,207,142,.12); padding: 4px 10px; border-radius: 980px; flex: none; }
+.tl3 { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 16px; padding-top: 18px; }
+.trk { position: absolute; left: 6px; right: 6px; top: 5px; height: 3px; border-radius: 3px; background: var(--dev-line2); }
+.trk .fill { height: 100%; width: 100%; border-radius: 3px; background: linear-gradient(90deg, #f5a524, #64d2ff 45%, #3ecf8e); transform-origin: left; animation: tlfill 6s ease-in-out infinite; }
+@keyframes tlfill { 0% { transform: scaleX(0); } 55%, 92% { transform: scaleX(1); } 100% { transform: scaleX(1); opacity: 0; } }
+.st { position: relative; min-width: 0; }
+.st i { position: absolute; top: -18px; left: 0; width: 13px; height: 13px; border-radius: 50%; background: var(--dev-screen); border: 2px solid var(--dev-track2); }
+.st.s2 { text-align: center; } .st.s2 i { left: calc(50% - 6.5px); }
+.st.s3 { text-align: right; } .st.s3 i { left: auto; right: 0; }
+.st b { display: block; font: 600 13px var(--f-mono); color: var(--dev-fg); }
+.st span { display: block; font: 400 11.5px/1.35 var(--f-sans); color: var(--dev-muted); margin-top: 2px; }
+.st.s1 i { animation: d1 6s infinite; } .st.s2 i { animation: d2 6s infinite; } .st.s3 i { animation: d3 6s infinite; }
+@keyframes d1 { 0%, 100% { background: #ff9f0a; border-color: #ff9f0a; } }
+@keyframes d2 { 0%, 24% { background: var(--dev-screen); border-color: var(--dev-track2); } 28%, 100% { background: #64d2ff; border-color: #64d2ff; } }
+@keyframes d3 { 0%, 52% { background: var(--dev-screen); border-color: var(--dev-track2); } 56%, 100% { background: #3ecf8e; border-color: #3ecf8e; box-shadow: 0 0 6px rgba(62,207,142,.5); } }
+@media (max-width: 560px) { .sc-head .path, .sc-head .dots { display: none; } .sc-head .up { margin-left: 0; white-space: nowrap; } .kp span { font-size: 9.5px; letter-spacing: .02em; white-space: normal; overflow: visible; } .kp div { padding: 10px; } .kp b { font-size: 22px; } .srow { grid-template-columns: 92px minmax(0, 1fr) 44px; gap: 8px; } .sname { font-size: 11px; } .sax { justify-content: center; padding: 0; } .sax span:not(.demo) { display: none; } .st span { font-size: 10.5px; } .inc-top { flex-direction: column; align-items: flex-start; } }
+
+/* stats */
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+.stats > div { padding: 8px 22px; border-left: 1px solid var(--line); }
+.stats > div:first-child { border-left: 0; padding-left: 0; }
+.stats b { display: block; white-space: nowrap; font-size: clamp(34px, 5vw, 56px); font-weight: 700; letter-spacing: -0.04em; line-height: 1.05; font-variant-numeric: tabular-nums; }
+.stats span { display: block; color: var(--muted); font-size: 15px; margin-top: 8px; line-height: 1.35; }
+@media (max-width: 760px) { .stats { grid-template-columns: 1fr 1fr; row-gap: 34px; } .stats > div:nth-child(3) { border-left: 0; padding-left: 0; } }
+
+/* bento */
+.bento { display: grid; grid-template-columns: repeat(5, 1fr); gap: 18px; margin-top: 56px; }
+.tile { grid-column: span 2; background: var(--tile); border-radius: 28px; padding: 36px 34px; display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.tile.wide { grid-column: span 3; }
+.grey .tile { background: var(--tile); }
+.tile .big { font-size: clamp(44px, 6vw, 68px); font-weight: 700; letter-spacing: -0.045em; line-height: 1; background: linear-gradient(180deg, var(--fg), var(--soft)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.tile h3 { font-size: 24px; font-weight: 700; letter-spacing: -0.025em; margin-top: 10px; }
+.tile p { color: var(--muted); font-size: 16px; }
+.tile .proof { margin-top: auto; padding-top: 16px; border-top: 1px solid var(--line); color: var(--fg); font-size: 15px; }
+.tile .ptag { display: block; font-size: 12px; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 4px; }
+@media (max-width: 820px) { .bento { grid-template-columns: 1fr; } .tile, .tile.wide { grid-column: auto; } }
+
+/* story */
+.story-p { font-size: clamp(21px, 2.6vw, 28px); line-height: 1.32; font-weight: 600; letter-spacing: -0.02em; max-width: 30em; margin-top: 40px; }
+.story-p .dim { color: var(--soft); }
+.tl { list-style: none; margin: 64px 0 0; padding: 0; display: grid; gap: 0; }
+.tl li { display: grid; grid-template-columns: 140px 1fr; gap: 28px; padding-block: 26px; border-top: 1px solid var(--line); }
+.tl li > div { min-width: 0; }
+.tl .yr { font-size: 40px; font-weight: 700; letter-spacing: -0.04em; color: var(--soft); line-height: 1; font-variant-numeric: tabular-nums; }
+.tl h3 { font-size: 21px; font-weight: 600; letter-spacing: -0.02em; }
+.tl p { color: var(--muted); margin-top: 6px; max-width: 40em; }
+@media (max-width: 640px) { .tl li { grid-template-columns: 1fr; gap: 8px; } .tl .yr { font-size: 30px; } }
+.quote { margin-top: 72px; font-size: clamp(32px, 5vw, 56px); font-weight: 700; letter-spacing: -0.04em; line-height: 1.08; }
+.quote .dim { color: var(--soft); }
+
+/* experience */
+.job { margin-top: 48px; background: var(--tile); border-radius: 28px; padding: 36px 34px; }
+.job-top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 20px; align-items: baseline; }
+.job h3 { font-size: 28px; font-weight: 700; letter-spacing: -0.03em; }
+.job .when { color: var(--soft); font-size: 15px; white-space: nowrap; }
+.job .org { color: var(--muted); margin-top: 4px; }
+.job ul { margin: 24px 0 0; padding: 0; list-style: none; display: grid; gap: 14px; }
+.job ul li { position: relative; padding-left: 22px; max-width: 46em; }
+.job ul li::before { content: ""; position: absolute; left: 2px; top: .62em; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+.earlier { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 18px; }
+.earlier > div { background: var(--tile); border-radius: 24px; padding: 28px; min-width: 0; }
+.earlier h4 { margin: 0; font-size: 19px; letter-spacing: -0.02em; }
+.earlier .meta { color: var(--soft); font-size: 14px; margin-top: 4px; }
+.earlier p { color: var(--muted); font-size: 15.5px; margin-top: 10px; }
+@media (max-width: 720px) { .earlier { grid-template-columns: 1fr; } }
+
+/* skills */
+.skills { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px 56px; margin-top: 56px; }
+.skg { min-width: 0; }
+.skg h3 { font-size: 19px; font-weight: 600; letter-spacing: -0.02em; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+.pills { list-style: none; margin: 14px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.pills li { font-size: 14px; padding: 6px 13px; border-radius: 980px; background: var(--band); color: var(--fg); }
+.grey .pills li { background: var(--tile); }
+@media (max-width: 720px) { .skills { grid-template-columns: 1fr; } }
+
+/* education */
+.edu { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-top: 56px; }
+.edu > div { background: var(--tile); border-radius: 24px; padding: 28px; min-width: 0; display: flex; flex-direction: column; gap: 6px; }
+.edu .k { font-size: 13px; font-weight: 600; color: var(--soft); text-transform: uppercase; letter-spacing: .06em; }
+.edu h4 { margin: 4px 0 0; font-size: 20px; letter-spacing: -0.02em; }
+.edu p { color: var(--muted); font-size: 15px; }
+.edu .badge { align-self: flex-start; margin-top: 8px; font-size: 13px; font-weight: 600; padding: 4px 10px; border-radius: 980px; background: color-mix(in srgb, #30d158 18%, transparent); color: var(--fg); }
+.langs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: 56px; border-top: 1px solid var(--line); }
+.langs div { padding: 22px 0; }
+.langs b { display: block; font-size: 24px; letter-spacing: -0.03em; }
+.langs span { color: var(--muted); font-size: 15px; }
+.langs b span { color: inherit; font-size: inherit; }
+@media (max-width: 820px) { .edu { grid-template-columns: 1fr; } .langs { grid-template-columns: 1fr 1fr; } }
+
+/* contact */
+.contact { text-align: center; }
+.contact .h2 { margin-inline: auto; max-width: 12em; }
+.contact .lead { margin-inline: auto; }
+.mailrow { display: flex; gap: 12px; justify-content: center; align-items: center; flex-wrap: wrap; margin-top: 34px; }
+.mail { font-size: clamp(18px, 2.4vw, 22px); font-weight: 600; letter-spacing: -0.02em; user-select: all; overflow-wrap: anywhere; }
+.pill.ghost { background: transparent; color: var(--accent); border: 1px solid var(--accent); padding: 9px 18px; font-size: 15px; cursor: pointer; font-family: var(--f-sans); }
+.copied { font-size: 14px; color: var(--soft); min-width: 5em; }
+.contact .ctas { margin-top: 26px; }
+footer { padding-block: 22px 40px; border-top: 1px solid var(--line); color: var(--soft); font-size: 12px; display: flex; justify-content: space-between; gap: 8px 20px; flex-wrap: wrap; }
+
+/* tech art */
+.band, .hero, .contact { position: relative; overflow: hidden; }
+.band > .col, .hero > .col { position: relative; z-index: 1; }
+.bgart { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
+.waves .w { fill: none; stroke: var(--deco); stroke-width: 2.2; opacity: .45; }
+.waves .w1 { stroke: var(--deco-2); opacity: .5; } .waves .w2 { opacity: .25; }
+.circuit g { fill: none; stroke: var(--deco); stroke-width: 1.6; opacity: .3; }
+.circuit .cp { fill: none; stroke: var(--deco-2); stroke-width: 3; stroke-linecap: round; stroke-dasharray: 40 1600; animation: flow 5s linear infinite; filter: drop-shadow(0 0 4px var(--deco-2)); }
+.circuit circle { fill: var(--bg); }
+.fibers { top: auto; bottom: 0; height: 240px; -webkit-mask-image: linear-gradient(to top, #000 55%, transparent); mask-image: linear-gradient(to top, #000 55%, transparent); }
+
+.fibers .fb { fill: none; stroke: var(--deco); stroke-width: 1.4; opacity: .28; }
+.fibers .fl { fill: none; stroke: var(--deco-2); stroke-width: 3.2; stroke-linecap: round; stroke-dasharray: 90 1400; animation: flow 6s linear infinite; opacity: 1; filter: drop-shadow(0 0 5px var(--deco-2)); }
+.fibers .f7 { animation-delay: -1.8s; stroke: var(--deco); } .fibers .f8 { animation-delay: -3.9s; } .fibers .f9 { animation-delay: -5.6s; stroke: var(--deco); }
+.fibers .f1 { animation-delay: -1s; stroke: var(--deco); } .fibers .f2 { animation-delay: -2.6s; } .fibers .f3 { animation-delay: -3.4s; stroke: var(--deco); } .fibers .f4 { animation-delay: -4.2s; } .fibers .f5 { animation-delay: -.6s; stroke: var(--deco); } .fibers .f6 { animation-delay: -5.1s; }
+@keyframes flow { from { stroke-dashoffset: 1470; } to { stroke-dashoffset: 0; } }
+.route { height: 300px; top: 30px; bottom: auto; }
+.route .arc-bg { fill: none; stroke: var(--deco); stroke-width: 6; opacity: .12; stroke-linecap: round; }
+.route .mover { fill: var(--deco-2); filter: drop-shadow(0 0 6px var(--deco-2)); }
+.route .halo { fill: none; stroke: var(--deco); stroke-width: 2; opacity: .35; transform-box: fill-box; transform-origin: center; animation: ping 2.6s ease-out infinite; }
+.route .pin2 { fill: var(--deco); }
+.route .place { font: 600 15px var(--f-sans); fill: var(--fg); letter-spacing: -0.01em; }
+:root:not(.lang-it) .route [data-l="it"], :root.lang-it .route [data-l="en"] { display: none; }
+.route .arc { fill: none; stroke: var(--deco); stroke-width: 2.5; stroke-dasharray: 1 9; stroke-linecap: round; opacity: .9; }
+.route .pin { fill: var(--deco-2); }
+.route text, .tart text { font: 600 13px var(--f-mono); fill: var(--soft); }
+.mesh { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+.hero::before { content: ""; position: absolute; inset: -10% -10% 0; z-index: 0; pointer-events: none; background: radial-gradient(40% 50% at 22% 30%, color-mix(in srgb, var(--deco) 28%, transparent), transparent 70%), radial-gradient(38% 46% at 80% 62%, color-mix(in srgb, var(--deco-2) 26%, transparent), transparent 70%); filter: blur(10px); }
+.hero > .col { z-index: 2; }
+.tile { position: relative; overflow: hidden; }
+.tile > *:not(.tart) { position: relative; z-index: 1; }
+.tart { position: relative; display: block; width: calc(100% + 68px); max-width: none; height: 180px; margin: -36px -34px 6px; padding: 18px 18px 0; overflow: hidden; }
+.tile::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 220px; z-index: 0; pointer-events: none; background: radial-gradient(60% 80% at 50% 0%, color-mix(in srgb, var(--deco) 22%, transparent), transparent 75%); }
+.tile:nth-child(2n)::before { background: radial-gradient(60% 80% at 50% 0%, color-mix(in srgb, var(--deco-2) 22%, transparent), transparent 75%); }
+#capabilities { background: var(--cap-bg); }
+#capabilities .tile { background: var(--cap-tile); border: 1px solid var(--cap-border); }
+.tart .gridl line { stroke: var(--deco-line); stroke-width: 1; }
+.tart .trace { fill: none; stroke: var(--deco); stroke-width: 3; filter: drop-shadow(0 0 5px var(--deco)); stroke-linejoin: round; stroke-dasharray: 520; stroke-dashoffset: 520; animation: draw 4.5s ease-in-out infinite; }
+@keyframes draw { 0% { stroke-dashoffset: 520; } 45%, 80% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: -520; } }
+.tart .hot { fill: var(--deco-2); filter: drop-shadow(0 0 6px var(--deco-2)); } .tart .hot2 { fill: var(--deco); }
+.tart .hotring { fill: none; stroke: var(--deco-2); stroke-width: 2; transform-box: fill-box; transform-origin: center; animation: ping 2.4s ease-out infinite; }
+@keyframes ping { 0% { transform: scale(1); opacity: .9; } 100% { transform: scale(4); opacity: 0; } }
+.tart .ring { fill: none; stroke: var(--deco); stroke-width: 2.2; opacity: 0; transform-box: fill-box; transform-origin: center; animation: ripple 4s ease-out infinite; }
+.tart .r1 { animation-delay: .8s; } .tart .r2 { animation-delay: 1.6s; } .tart .r3 { animation-delay: 2.4s; } .tart .r4 { animation-delay: 3.2s; }
+@keyframes ripple { 0% { opacity: .6; transform: scale(.6); } 100% { opacity: 0; transform: scale(1.15); } }
+.tart .tower path, .tart .tower2 path { fill: none; stroke: var(--fg); stroke-width: 2.4; opacity: .7; stroke-linecap: round; }
+.tart .beam { fill: none; stroke: var(--deco-2); stroke-width: 2; stroke-dasharray: 4 7; opacity: .7; animation: march 1.2s linear infinite; }
+@keyframes march { to { stroke-dashoffset: -22; } }
+.tart .wedge { fill: var(--deco); opacity: .08; stroke: var(--deco); stroke-opacity: .35; animation: sweep 3.6s ease-in-out infinite; }
+.tart .wedge.w1 { animation-delay: 1.2s; fill: var(--deco-2); stroke: var(--deco-2); } .tart .wedge.w2 { animation-delay: 2.4s; }
+@keyframes sweep { 0%, 100% { opacity: .06; } 35% { opacity: .32; } }
+.tart .lat { fill: none; stroke: var(--fg); stroke-width: 1.3; opacity: .75; stroke-linejoin: round; }
+.tart .ant rect { fill: var(--fg); opacity: .85; }
+.tart .dish ellipse, .tart .dish line { fill: var(--cap-tile); stroke: var(--fg); stroke-width: 1.6; opacity: .85; }
+.tart .link { stroke: var(--deco-2); stroke-width: 2; stroke-dasharray: 4 6; animation: march 1.2s linear infinite; }
+.tart .flow { fill: none; stroke: var(--deco); stroke-width: 2; stroke-dasharray: 3 7; opacity: .7; }
+.tart .ic rect, .tart .ic path, .tart .ic ellipse { fill: var(--cap-tile); stroke: var(--fg); stroke-width: 1.6; stroke-opacity: .75; }
+.tart .ic .front { fill: var(--cap-tile); }
+.tart .ic line { stroke: var(--fg); stroke-width: 1.6; opacity: .55; stroke-linecap: round; }
+.tart .vec rect { fill: var(--deco); }
+.tart .vecbg { fill: var(--cap-tile); }
+.tart .dbdot { fill: var(--deco-2); }
+.tart .chipt { font: 700 11px var(--f-mono); fill: var(--deco); }
+.tart .wires path { fill: none; stroke: var(--deco); stroke-width: 2.2; opacity: .85; filter: drop-shadow(0 0 3px var(--deco)); }
+.tart .nd rect { fill: var(--cap-tile); stroke: var(--fg); stroke-opacity: .6; stroke-width: 1.4; }
+.tart .nd .t1 { font: 500 11px var(--f-sans); fill: var(--fg); letter-spacing: 0; }
+.tart .nd .t2 { font: 400 8.5px var(--f-mono); fill: var(--soft); }
+.tart .t3 { font: 500 8.5px var(--f-mono); fill: var(--deco-2); }
+.tart .wire { fill: none; stroke: var(--deco); stroke-width: 2; opacity: .85; filter: drop-shadow(0 0 3px var(--deco)); }
+.tart .boxes rect { fill: var(--cap-tile); stroke: var(--fg); stroke-opacity: .55; stroke-width: 1.6; }
+.tart .lbl text { font-size: 10px; }
+.tart .packet { fill: var(--deco-2); filter: drop-shadow(0 0 5px var(--deco-2)); }
+.tart .knn line { stroke: var(--deco-2); stroke-width: 1.6; opacity: .9; }
+.tart .pt { fill: var(--deco); opacity: .55; } .tart .nn { fill: var(--deco); opacity: 1; filter: drop-shadow(0 0 4px var(--deco)); }
+@media (max-width: 820px) { .route { display: none; } .tart { height: 150px; } }
+
+/* hero panorama */
+.pano { display: block; width: 100%; max-width: 1060px; height: auto; margin: 40px auto 0; overflow: visible; }
+.pano .ground { stroke: var(--line); stroke-width: 1.5; }
+.pano .rack > rect { fill: var(--rack-body); stroke: var(--rack-stroke); stroke-width: 1.5; }
+.pano .rack .u { fill: var(--rack-u); stroke: var(--rack-ustroke); stroke-width: 1; }
+.pano .rack .vent { stroke: var(--rack-vent); stroke-width: 1.4; stroke-dasharray: 2 2; }
+.pano .ledp { fill: var(--rack-led); animation: blink 1.6s steps(2) infinite; }
+.pano .ledp.l1 { animation-delay: .5s; fill: var(--rack-led2); } .pano .ledp.l2 { animation-delay: 1s; }
+@keyframes blink { 50% { opacity: .25; } }
+.pano .dev rect:first-child { fill: var(--bg); stroke: var(--fg); stroke-width: 1.6; }
+.pano .dev .port { fill: var(--deco-2); opacity: .8; }
+.pano .tiny { font: 700 9px var(--f-mono); fill: var(--fg); }
+.pano .fiber { fill: none; stroke: var(--deco-2); stroke-width: 2.4; opacity: .6; stroke-linecap: round; }
+.pano .fiber.drop { stroke-width: 1.8; }
+.pano .photon { fill: var(--deco-2); filter: drop-shadow(0 0 6px var(--deco-2)); }
+.pano .photon2 { fill: var(--deco); filter: drop-shadow(0 0 6px var(--deco)); }
+.pano .house path { fill: var(--bg); stroke: var(--fg); stroke-width: 1.7; stroke-linejoin: round; }
+.pano .house .win { fill: color-mix(in srgb, var(--deco) 30%, var(--bg)); stroke: var(--fg); stroke-width: 1; }
+.pano .house .door { fill: var(--fg); opacity: .3; }
+.pano .ontd rect { fill: var(--bg); stroke: var(--deco-2); stroke-width: 1.4; }
+.pano .led { fill: #30d158; }
+.pano .cpe line { stroke: var(--fg); stroke-width: 1.7; }
+.pano .cpe rect { fill: var(--bg); stroke: var(--fg); stroke-width: 1.5; }
+.pano .lat { fill: none; stroke: var(--fg); stroke-width: 1.3; opacity: .85; stroke-linejoin: round; }
+.pano .dish path { fill: var(--bg); stroke: var(--fg); stroke-width: 1.6; } .pano .dish line { stroke: var(--fg); stroke-width: 1.6; }
+.pano .sect rect { fill: var(--bg); stroke: var(--fg); stroke-width: 1.4; }
+.pano .ptp { stroke: var(--deco); stroke-width: 2; stroke-dasharray: 5 6; animation: march 1.2s linear infinite; }
+.pano .cover { fill: var(--deco); opacity: .07; }
+.pano .radio { stroke: var(--deco); stroke-width: 1.4; stroke-dasharray: 3 7; opacity: .6; }
+.pano .lbl { font: 600 16px var(--f-sans); fill: var(--fg); }
+.pano .mini { font: 500 11px var(--f-mono); fill: var(--soft); }
+@media (max-width: 640px) { .pano { margin-top: 28px; } .pano .lbl { font-size: 24px; } .pano .mini { display: none; } .pano .mini.keep { display: inline; font-size: 20px; font-weight: 500; fill: var(--soft); } .pano .ptpl { transform: translate(-34px, 0); } }
+
+/* handshake */
+.hs-wrap { max-width: 620px; margin: 56px auto 0; }
+.hs { display: block; width: 100%; height: auto; }
+.hs .lnk { stroke: var(--line); stroke-width: 3; stroke-linecap: round; }
+.hs .lnk-ok { stroke: #30d158; stroke-width: 3; stroke-linecap: round; stroke-dasharray: 380; stroke-dashoffset: 380; animation: hsline 7s ease-in-out infinite; filter: drop-shadow(0 0 6px #30d158); }
+@keyframes hsline { 0%, 62% { stroke-dashoffset: 380; opacity: 1; } 72%, 92% { stroke-dashoffset: 0; opacity: 1; } 100% { stroke-dashoffset: 0; opacity: 0; } }
+.hs .ring { fill: none; stroke: var(--deco); stroke-width: 1.5; opacity: .35; }
+.hs .face { fill: var(--tile); stroke: var(--line); stroke-width: 1.5; }
+.hs .face.me { fill: var(--fg); stroke: none; }
+.hs .ini { font: 700 17px var(--f-sans); fill: var(--fg); letter-spacing: -0.02em; }
+.hs .ini.me { fill: var(--bg); font-size: 20px; }
+.hs .pk rect { fill: var(--deco); filter: drop-shadow(0 4px 10px color-mix(in srgb, var(--deco) 45%, transparent)); }
+.hs .pk text { font: 700 12px var(--f-mono); fill: #fff; letter-spacing: .04em; }
+.hs .p2 rect { fill: var(--deco-2); filter: drop-shadow(0 4px 10px color-mix(in srgb, var(--deco-2) 45%, transparent)); }
+.hs .pk { opacity: 0; transform-box: view-box; }
+.hs .p1 { animation: hsp1 7s ease-in-out infinite; } .hs .p2 { animation: hsp2 7s ease-in-out infinite; } .hs .p3 { animation: hsp3 7s ease-in-out infinite; }
+@keyframes hsp1 { 0% { opacity: 0; transform: translateX(0); } 3% { opacity: 1; } 18% { opacity: 1; transform: translateX(310px); } 21%, 100% { opacity: 0; transform: translateX(310px); } }
+@keyframes hsp2 { 0%, 21% { opacity: 0; transform: translateX(0); } 24% { opacity: 1; } 39% { opacity: 1; transform: translateX(-264px); } 42%, 100% { opacity: 0; transform: translateX(-264px); } }
+@keyframes hsp3 { 0%, 42% { opacity: 0; transform: translateX(0); } 45% { opacity: 1; } 60% { opacity: 1; transform: translateX(310px); } 63%, 100% { opacity: 0; transform: translateX(310px); } }
+.hs .ok { opacity: 0; animation: hsok 7s ease-in-out infinite; }
+@keyframes hsok { 0%, 66% { opacity: 0; transform: translateY(6px); } 74%, 92% { opacity: 1; transform: translateY(0); } 100% { opacity: 0; } }
+.hs .ok rect { fill: color-mix(in srgb, #30d158 14%, var(--tile)); stroke: #30d158; stroke-width: 1.5; }
+.hs .ok circle { fill: #30d158; }
+.hs .ok text { font: 600 15px var(--f-sans); fill: var(--fg); }
+:root:not(.lang-it) svg [data-l="it"], :root.lang-it svg [data-l="en"] { display: none; }
+
+/* reveal */
+.rv { transition: opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1); }
+.rv.pre { opacity: .001; transform: translateY(24px); }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .rv, .rv.pre { transition: none; opacity: 1; transform: none; } .trk .fill, .st i { animation: none !important; } .st.s2 i { background: #64d2ff; border-color: #64d2ff; } .st.s3 i { background: #3ecf8e; border-color: #3ecf8e; } .hs .pk { animation: none !important; opacity: 0 !important; } .hs .ok { animation: none !important; opacity: 1 !important; } .hs .lnk-ok { animation: none !important; stroke-dashoffset: 0; } .pano .ledp, .pano .ptp, .pano .radio, .pano .wave, .fibers .fl, .tart .trace, .tart .hotring, .tart .ring, .tart .beam { animation: none; } .tart .trace { stroke-dashoffset: 0; } .tart .ring { opacity: .3; } }
+</style>
+</head>
+<body>
+<nav class="nav" aria-label="Primary">
+  <div class="col">
+    <a class="name" href="#top">Sunil Kumar</a>
+    <div class="links">
+      <a href="#capabilities"><span data-l="en">What I do</span><span data-l="it">Cosa so fare</span></a>
+      <a href="#story"><span data-l="en">Story</span><span data-l="it">Storia</span></a>
+      <a href="#experience"><span data-l="en">Experience</span><span data-l="it">Esperienza</span></a>
+      <a href="#skills"><span data-l="en">Skills</span><span data-l="it">Competenze</span></a>
+      <a href="#contact"><span data-l="en">Contact</span><span data-l="it">Contatti</span></a>
+    </div>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" id="btn-en" data-set="en" aria-pressed="true">EN</button>
+      <button type="button" id="btn-it" data-set="it" aria-pressed="false">IT</button>
+    </div>
+    <button type="button" class="theme-btn" id="theme-btn" aria-label="Switch to dark mode">
+      <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7z"/></svg>
+      <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg>
+    </button>
+  </div>
+</nav>
+
+<main id="top">
+  <header class="hero">
+    <div class="col">
+      <div class="who"><i aria-hidden="true"></i><span data-l="en">Network Engineer · AI Automation · Marche, Italy</span><span data-l="it">Network Engineer · AI Automation · Marche, Italia</span></div>
+      <h1><span data-l="en">Networks that stay up.<span class="dim">Problems solved in minutes.</span></span><span data-l="it">Reti sempre operative.<span class="dim">Guasti risolti in pochi minuti.</span></span></h1>
+      <p class="lead"><span data-l="en">I find network faults in minutes, keep wireless links running efficiently and build tools that speed up my own work and my team's. <strong>Self-taught in AI automation.</strong></span><span data-l="it">Trovo i guasti di rete in pochi minuti, mantengo efficienti i collegamenti wireless e creo strumenti che velocizzano il mio lavoro e quello del team. <strong>Autodidatta nell'automazione con l'AI.</strong></span></p>
+      <div class="ctas">
+        <a class="pill" href="#capabilities"><span data-l="en">See what I do</span><span data-l="it">Scopri cosa so fare</span></a>
+        <a class="more" data-l="en" href="cv/Sunil_Kumar_CV_EN.pdf" target="_blank" rel="noopener">Download CV</a>
+        <a class="more" data-l="it" href="cv/Sunil_Kumar_CV_IT.pdf" target="_blank" rel="noopener">Scarica il CV</a>
+        <a class="more" href="https://www.linkedin.com/in/imsunil92/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="more" href="https://github.com/imsunil92" target="_blank" rel="noopener">GitHub</a>
+      </div>
+      <svg class="pano" viewBox="0 0 1000 300" preserveAspectRatio="xMidYMax meet" role="img" aria-label="Illustration: a core rack feeding FTTH homes through an OLT and splitter, and FWA homes through a fiber backhaul, a PtP radio link and a sector antenna"><line class="ground" x1="0" y1="262" x2="1000" y2="262"/><path class="fiber" d="M464 235 H399"/><path class="fiber" d="M331 235 H259"/><path class="fiber drop" d="M231 235 C 205 235, 50 235, 23 250"/><path class="fiber drop" d="M231 235 C 205 235, 118 235, 91 250"/><path class="fiber drop" d="M231 235 C 205 235, 186 235, 159 250"/><circle class="photon" r="3"><animateMotion dur="3.2s" begin="-0.00s" repeatCount="indefinite" path="M464 235 H231 C 205 235, 50 235, 23 250"/></circle><circle class="photon" r="3"><animateMotion dur="3.2s" begin="-1.05s" repeatCount="indefinite" path="M464 235 H231 C 205 235, 118 235, 91 250"/></circle><circle class="photon" r="3"><animateMotion dur="3.2s" begin="-2.10s" repeatCount="indefinite" path="M464 235 H231 C 205 235, 186 235, 159 250"/></circle><path class="fiber" d="M536 235 H627"/><circle class="photon" r="3"><animateMotion dur="1.4s" repeatCount="indefinite" path="M536 235 H627"/></circle><path class="ptp" d="M660 128 L780 98"/><circle class="photon2" r="3"><animateMotion dur="1.3s" repeatCount="indefinite" path="M660 128 L780 98"/></circle><path class="cover" d="M806 88 L990 222 L990 172 Z"/><path class="radio" d="M808 88 L882 196"/><circle class="photon2" r="2.6"><animateMotion dur="2.2s" begin="-0.0s" repeatCount="indefinite" path="M808 88 L882 196"/></circle><path class="radio" d="M808 88 L937 196"/><circle class="photon2" r="2.6"><animateMotion dur="2.2s" begin="-0.7s" repeatCount="indefinite" path="M808 88 L937 196"/></circle><path class="radio" d="M808 88 L992 196"/><circle class="photon2" r="2.6"><animateMotion dur="2.2s" begin="-1.4s" repeatCount="indefinite" path="M808 88 L992 196"/></circle><g class="rack"><rect x="464" y="158" width="72" height="104" rx="6"/><rect class="u" x="472" y="168" width="56" height="11" rx="2"/><circle class="ledp l0" cx="479" cy="173.5" r="1.5"/><circle class="ledp l1" cx="485" cy="173.5" r="1.5"/><circle class="ledp l2" cx="491" cy="173.5" r="1.5"/><circle class="ledp l0" cx="497" cy="173.5" r="1.5"/><line class="vent" x1="504" y1="173.5" x2="522" y2="173.5"/><rect class="u" x="472" y="183" width="56" height="11" rx="2"/><circle class="ledp l1" cx="479" cy="188.5" r="1.5"/><circle class="ledp l2" cx="485" cy="188.5" r="1.5"/><circle class="ledp l0" cx="491" cy="188.5" r="1.5"/><circle class="ledp l1" cx="497" cy="188.5" r="1.5"/><line class="vent" x1="504" y1="188.5" x2="522" y2="188.5"/><rect class="u" x="472" y="198" width="56" height="11" rx="2"/><circle class="ledp l2" cx="479" cy="203.5" r="1.5"/><circle class="ledp l0" cx="485" cy="203.5" r="1.5"/><circle class="ledp l1" cx="491" cy="203.5" r="1.5"/><circle class="ledp l2" cx="497" cy="203.5" r="1.5"/><line class="vent" x1="504" y1="203.5" x2="522" y2="203.5"/><rect class="u" x="472" y="213" width="56" height="11" rx="2"/><circle class="ledp l0" cx="479" cy="218.5" r="1.5"/><circle class="ledp l1" cx="485" cy="218.5" r="1.5"/><circle class="ledp l2" cx="491" cy="218.5" r="1.5"/><circle class="ledp l0" cx="497" cy="218.5" r="1.5"/><line class="vent" x1="504" y1="218.5" x2="522" y2="218.5"/><rect class="u" x="472" y="228" width="56" height="11" rx="2"/><circle class="ledp l1" cx="479" cy="233.5" r="1.5"/><circle class="ledp l2" cx="485" cy="233.5" r="1.5"/><circle class="ledp l0" cx="491" cy="233.5" r="1.5"/><circle class="ledp l1" cx="497" cy="233.5" r="1.5"/><line class="vent" x1="504" y1="233.5" x2="522" y2="233.5"/><rect class="u" x="472" y="243" width="56" height="11" rx="2"/><circle class="ledp l2" cx="479" cy="248.5" r="1.5"/><circle class="ledp l0" cx="485" cy="248.5" r="1.5"/><circle class="ledp l1" cx="491" cy="248.5" r="1.5"/><circle class="ledp l2" cx="497" cy="248.5" r="1.5"/><line class="vent" x1="504" y1="248.5" x2="522" y2="248.5"/></g><text x="500" y="288" class="lbl" text-anchor="middle">Core</text><g class="dev"><rect x="331" y="222" width="68" height="26" rx="4"/><rect class="port" x="339" y="231" width="6" height="8" rx="1"/><rect class="port" x="348" y="231" width="6" height="8" rx="1"/><rect class="port" x="357" y="231" width="6" height="8" rx="1"/><rect class="port" x="366" y="231" width="6" height="8" rx="1"/><rect class="port" x="375" y="231" width="6" height="8" rx="1"/><rect class="port" x="384" y="231" width="6" height="8" rx="1"/><circle class="ledp l0" cx="391" cy="235" r="1.6"/></g><text x="365" y="214" class="mini keep" text-anchor="middle">OLT</text><g class="dev"><rect x="231" y="226" width="28" height="18" rx="3"/><text x="245" y="238" class="tiny" text-anchor="middle">1:8</text></g><text x="245" y="218" class="mini keep" text-anchor="middle">splitter</text><g class="house"><path d="M18 262 V236 L40 218 L62 236 V262 Z"/><rect class="win" x="26" y="240" width="9" height="8" rx="1"/><rect class="door" x="43" y="246" width="8" height="16" rx="1"/></g><g class="ontd"><rect x="16" y="250" width="13" height="9" rx="2"/><circle class="led" cx="25" cy="254.5" r="1.3"/></g><g class="house"><path d="M86 262 V236 L108 218 L130 236 V262 Z"/><rect class="win" x="94" y="240" width="9" height="8" rx="1"/><rect class="door" x="111" y="246" width="8" height="16" rx="1"/></g><g class="ontd"><rect x="84" y="250" width="13" height="9" rx="2"/><circle class="led" cx="93" cy="254.5" r="1.3"/></g><g class="house"><path d="M154 262 V236 L176 218 L198 236 V262 Z"/><rect class="win" x="162" y="240" width="9" height="8" rx="1"/><rect class="door" x="179" y="246" width="8" height="16" rx="1"/></g><g class="ontd"><rect x="152" y="250" width="13" height="9" rx="2"/><circle class="led" cx="161" cy="254.5" r="1.3"/></g><text x="108" y="288" class="lbl" text-anchor="middle">FTTH</text><text x="570" y="227" class="mini" text-anchor="middle">backhaul</text><path class="lat" d="M627 262 L636.5 132 M653 262 L643.5 132 M627.0 262.0 L651.4 240.3 M653.0 262.0 L628.6 240.3 M628.6 240.3 L651.4 240.3 M628.6 240.3 L649.8 218.7 M651.4 240.3 L630.2 218.7 M630.2 218.7 L649.8 218.7 M630.2 218.7 L648.2 197.0 M649.8 218.7 L631.8 197.0 M631.8 197.0 L648.2 197.0 M631.8 197.0 L646.7 175.3 M648.2 197.0 L633.3 175.3 M633.3 175.3 L646.7 175.3 M633.3 175.3 L645.1 153.7 M646.7 175.3 L634.9 153.7 M634.9 153.7 L645.1 153.7 M634.9 153.7 L643.5 132.0 M645.1 153.7 L636.5 132.0 M636.5 132.0 L643.5 132.0"/><g class="dish"><path d="M654 118 q 9 10 0 20 z"/><line x1="654" y1="128" x2="644" y2="128"/></g><path class="lat" d="M787 262 L796.5 102 M813 262 L803.5 102 M787.0 262.0 L811.4 235.3 M813.0 262.0 L788.6 235.3 M788.6 235.3 L811.4 235.3 M788.6 235.3 L809.8 208.7 M811.4 235.3 L790.2 208.7 M790.2 208.7 L809.8 208.7 M790.2 208.7 L808.2 182.0 M809.8 208.7 L791.8 182.0 M791.8 182.0 L808.2 182.0 M791.8 182.0 L806.7 155.3 M808.2 182.0 L793.3 155.3 M793.3 155.3 L806.7 155.3 M793.3 155.3 L805.1 128.7 M806.7 155.3 L794.9 128.7 M794.9 128.7 L805.1 128.7 M794.9 128.7 L803.5 102.0 M805.1 128.7 L796.5 102.0 M796.5 102.0 L803.5 102.0"/><g class="dish"><path d="M786 88 q -9 10 0 20 z"/><line x1="786" y1="98" x2="796" y2="98"/></g><g class="sect"><rect x="796" y="78" width="6" height="20" rx="2"/><rect x="803" y="80" width="6" height="18" rx="2"/></g><text x="720" y="101" class="mini keep ptpl" text-anchor="middle">PtP link</text><g class="house"><path d="M848 262 V236 L870 218 L892 236 V262 Z"/><rect class="win" x="856" y="240" width="9" height="8" rx="1"/><rect class="door" x="873" y="246" width="8" height="16" rx="1"/></g><g class="cpe"><line x1="882" y1="226" x2="882" y2="206"/><rect x="877" y="192" width="10" height="15" rx="2.5"/><circle class="led" cx="882" cy="196" r="1.4"/></g><g class="house"><path d="M903 262 V236 L925 218 L947 236 V262 Z"/><rect class="win" x="911" y="240" width="9" height="8" rx="1"/><rect class="door" x="928" y="246" width="8" height="16" rx="1"/></g><g class="cpe"><line x1="937" y1="226" x2="937" y2="206"/><rect x="932" y="192" width="10" height="15" rx="2.5"/><circle class="led" cx="937" cy="196" r="1.4"/></g><g class="house"><path d="M958 262 V236 L980 218 L1002 236 V262 Z"/><rect class="win" x="966" y="240" width="9" height="8" rx="1"/><rect class="door" x="983" y="246" width="8" height="16" rx="1"/></g><g class="cpe"><line x1="992" y1="226" x2="992" y2="206"/><rect x="987" y="192" width="10" height="15" rx="2.5"/><circle class="led" cx="992" cy="196" r="1.4"/></g><text x="925" y="288" class="lbl" text-anchor="middle">FWA</text><text x="840" y="76" class="mini">sector AP · PtMP</text></svg>
+    </div>
+  </header>
+
+  <section class="device-wrap" aria-label="Network status page, illustrative data">
+    <div class="col">
+      <div class="device rv">
+        <div class="screen">
+<div class="sc-head"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="path">status / network</span><span class="up"><i aria-hidden="true"></i><span data-l="en">All systems operational</span><span data-l="it">Tutti i sistemi sono operativi</span></span></div>
+<div class="sc-body">
+  <div class="kp">
+    <div><span><span data-l="en">Uptime 90d</span><span data-l="it">Uptime 90g</span></span><b>99.98<small>%</small></b></div>
+    <div><span><span data-l="en">Incidents</span><span data-l="it">Incidenti</span></span><b>1<small><span data-l="en">resolved</span><span data-l="it">risolto</span></small></b></div>
+    <div><span><span data-l="en">Resolved in</span><span data-l="it">Risolto in</span></span><b>7<small>min</small></b></div>
+  </div>
+  <div class="svc"><div class="srow"><span class="sname"><i></i>FWA backbone</span><svg class="bars" viewBox="0 0 449 26" preserveAspectRatio="none" aria-hidden="true"><rect class="ok" x="0" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="5" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="10" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="15" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="20" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="25" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="30" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="35" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="40" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="45" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="50" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="55" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="60" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="65" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="70" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="75" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="80" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="85" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="90" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="95" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="100" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="105" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="110" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="115" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="120" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="125" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="130" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="135" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="140" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="145" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="150" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="155" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="160" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="165" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="170" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="175" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="180" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="185" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="190" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="195" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="200" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="205" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="210" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="215" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="220" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="225" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="230" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="235" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="240" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="245" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="250" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="255" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="260" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="265" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="270" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="275" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="280" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="285" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="290" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="295" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="300" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="305" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="310" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="315" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="320" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="325" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="330" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="335" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="340" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="345" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="350" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="355" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="360" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="365" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="370" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="375" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="380" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="385" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="390" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="395" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="400" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="405" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="410" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="415" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="420" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="425" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="430" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="435" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="440" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="445" y="0" width="3.6" height="26" rx="1.2"/></svg><span class="spct">99.99%</span></div><div class="srow"><span class="sname"><i></i>PtP links</span><svg class="bars" viewBox="0 0 449 26" preserveAspectRatio="none" aria-hidden="true"><rect class="ok" x="0" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="5" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="10" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="15" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="20" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="25" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="30" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="35" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="40" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="45" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="50" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="55" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="60" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="65" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="70" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="75" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="80" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="85" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="90" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="95" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="100" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="105" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="110" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="115" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="120" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="125" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="130" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="135" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="140" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="145" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="150" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="155" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="160" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="165" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="170" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="175" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="180" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="185" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="190" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="195" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="200" y="0" width="3.6" height="26" rx="1.2"/><rect class="minor" x="205" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="210" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="215" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="220" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="225" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="230" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="235" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="240" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="245" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="250" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="255" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="260" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="265" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="270" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="275" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="280" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="285" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="290" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="295" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="300" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="305" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="310" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="315" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="320" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="325" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="330" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="335" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="340" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="345" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="350" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="355" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="360" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="365" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="370" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="375" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="380" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="385" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="390" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="395" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="400" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="405" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="410" y="0" width="3.6" height="26" rx="1.2"/><rect class="inc" x="415" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="420" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="425" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="430" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="435" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="440" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="445" y="0" width="3.6" height="26" rx="1.2"/></svg><span class="spct">99.94%</span></div><div class="srow"><span class="sname"><i></i>FTTH / PON</span><svg class="bars" viewBox="0 0 449 26" preserveAspectRatio="none" aria-hidden="true"><rect class="ok" x="0" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="5" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="10" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="15" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="20" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="25" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="30" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="35" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="40" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="45" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="50" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="55" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="60" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="65" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="70" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="75" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="80" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="85" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="90" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="95" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="100" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="105" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="110" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="115" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="120" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="125" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="130" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="135" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="140" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="145" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="150" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="155" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="160" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="165" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="170" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="175" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="180" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="185" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="190" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="195" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="200" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="205" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="210" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="215" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="220" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="225" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="230" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="235" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="240" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="245" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="250" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="255" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="260" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="265" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="270" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="275" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="280" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="285" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="290" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="295" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="300" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="305" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="310" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="315" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="320" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="325" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="330" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="335" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="340" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="345" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="350" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="355" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="360" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="365" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="370" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="375" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="380" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="385" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="390" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="395" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="400" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="405" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="410" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="415" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="420" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="425" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="430" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="435" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="440" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="445" y="0" width="3.6" height="26" rx="1.2"/></svg><span class="spct">100%</span></div><div class="srow"><span class="sname"><i></i>Core &amp; DNS</span><svg class="bars" viewBox="0 0 449 26" preserveAspectRatio="none" aria-hidden="true"><rect class="ok" x="0" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="5" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="10" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="15" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="20" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="25" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="30" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="35" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="40" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="45" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="50" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="55" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="60" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="65" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="70" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="75" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="80" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="85" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="90" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="95" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="100" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="105" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="110" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="115" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="120" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="125" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="130" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="135" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="140" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="145" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="150" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="155" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="160" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="165" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="170" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="175" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="180" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="185" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="190" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="195" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="200" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="205" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="210" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="215" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="220" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="225" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="230" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="235" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="240" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="245" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="250" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="255" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="260" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="265" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="270" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="275" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="280" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="285" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="290" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="295" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="300" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="305" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="310" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="315" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="320" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="325" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="330" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="335" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="340" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="345" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="350" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="355" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="360" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="365" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="370" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="375" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="380" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="385" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="390" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="395" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="400" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="405" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="410" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="415" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="420" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="425" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="430" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="435" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="440" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="445" y="0" width="3.6" height="26" rx="1.2"/></svg><span class="spct">100%</span></div><div class="srow"><span class="sname"><i></i>VoIP</span><svg class="bars" viewBox="0 0 449 26" preserveAspectRatio="none" aria-hidden="true"><rect class="ok" x="0" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="5" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="10" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="15" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="20" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="25" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="30" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="35" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="40" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="45" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="50" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="55" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="60" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="65" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="70" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="75" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="80" y="0" width="3.6" height="26" rx="1.2"/><rect class="minor" x="85" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="90" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="95" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="100" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="105" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="110" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="115" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="120" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="125" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="130" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="135" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="140" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="145" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="150" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="155" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="160" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="165" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="170" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="175" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="180" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="185" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="190" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="195" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="200" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="205" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="210" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="215" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="220" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="225" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="230" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="235" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="240" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="245" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="250" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="255" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="260" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="265" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="270" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="275" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="280" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="285" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="290" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="295" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="300" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="305" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="310" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="315" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="320" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="325" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="330" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="335" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="340" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="345" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="350" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="355" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="360" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="365" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="370" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="375" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="380" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="385" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="390" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="395" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="400" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="405" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="410" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="415" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="420" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="425" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="430" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="435" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="440" y="0" width="3.6" height="26" rx="1.2"/><rect class="ok" x="445" y="0" width="3.6" height="26" rx="1.2"/></svg><span class="spct">99.97%</span></div><div class="sax"><span><span data-l="en">90 days ago</span><span data-l="it">90 giorni fa</span></span><span class="demo"><span data-l="en">demo data</span><span data-l="it">dati demo</span></span><span><span data-l="en">Today</span><span data-l="it">Oggi</span></span></div></div>
+  <div class="inc">
+    <div class="inc-top"><b><span data-l="en">Packet loss on PtP link TLN-01 ⇄ CVM-02</span><span data-l="it">Perdita di pacchetti sul ponte PtP TLN-01 ⇄ CVM-02</span></b><span class="res"><span data-l="en">Resolved</span><span data-l="it">Risolto</span></span></div>
+    <div class="tl3">
+      <div class="trk"><div class="fill"></div></div>
+      <div class="st s1"><i></i><b>10:02</b><span><span data-l="en">Detected</span><span data-l="it">Rilevato</span></span></div>
+      <div class="st s2"><i></i><b>10:04</b><span><span data-l="en">Diagnosed: RF interference</span><span data-l="it">Diagnosi: interferenza RF</span></span></div>
+      <div class="st s3"><i></i><b>10:09</b><span><span data-l="en">Frequency re-planned · link restored</span><span data-l="it">Frequenza ripianificata · link ripristinato</span></span></div>
+    </div>
+  </div>
+</div>
+        </div>
+      </div>
+      <p class="caption"><span data-l="en">Access: FWA · FTTH &nbsp;·&nbsp; Links: PtP · PtMP · PON &nbsp;·&nbsp; Monitoring: The Dude</span><span data-l="it">Accesso: FWA · FTTH &nbsp;·&nbsp; Collegamenti: PtP · PtMP · PON &nbsp;·&nbsp; Monitoraggio: The Dude</span></p>
+    </div>
+  </section>
+
+  <section class="band grey" aria-label="Key numbers">
+    
+    <div class="col">
+      <div class="stats rv">
+        <div><b>6+</b><span><span data-l="en">years in ISP network support</span><span data-l="it">anni di supporto alle reti di un ISP</span></span></div>
+        <div><b>&lt; 5 min</b><span><span data-l="en">first diagnosis of a network fault</span><span data-l="it">prima diagnosi di un guasto di rete</span></span></div>
+        <div><b>~50</b><span><span data-l="en">customer network maps</span><span data-l="it">mappe di rete dei clienti</span></span></div>
+        <div><b>4</b><span><span data-l="en">languages: English, Italian, Hindi, Punjabi</span><span data-l="it">lingue: inglese, italiano, hindi, punjabi</span></span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="capabilities">
+    <div class="col">
+      <div class="rv">
+        <p class="eyebrow"><span data-l="en">What I do</span><span data-l="it">Cosa so fare</span></p>
+        <h2 class="h2"><span data-l="en">What I do best. <span class="dim">Backed by proof.</span></span><span data-l="it">Cosa so fare meglio. <span class="dim">Con le prove.</span></span></h2>
+      </div>
+      <div class="bento"><article class="tile wide rv"><svg class="tart" viewBox="0 0 260 140" aria-hidden="true"><g class="gridl"><line x1="0" y1="30" x2="260" y2="30"/><line x1="0" y1="60" x2="260" y2="60"/><line x1="0" y1="90" x2="260" y2="90"/><line x1="0" y1="120" x2="260" y2="120"/><line x1="20" y1="0" x2="20" y2="140"/><line x1="60" y1="0" x2="60" y2="140"/><line x1="100" y1="0" x2="100" y2="140"/><line x1="140" y1="0" x2="140" y2="140"/><line x1="180" y1="0" x2="180" y2="140"/><line x1="220" y1="0" x2="220" y2="140"/></g>
+<polyline class="trace" points="0,96 26,94 44,98 62,95 80,97 96,92 108,28 118,118 128,88 146,95 170,93 194,96 220,94 260,95"/><circle class="hot" cx="108" cy="28" r="5"/><circle class="hotring" cx="108" cy="28" r="5"/>
+<text x="116" y="24" class="mono">ping 4 ms</text></svg><div class="big">&lt; 5 min</div><h3><span data-l="en">Network troubleshooting</span><span data-l="it">Troubleshooting di rete</span></h3><p><span data-l="en">I find and fix faults on FWA and FTTH networks: I check end-to-end reachability (CPE/antenna, ONT, router) and track down misconfigurations, DNS issues and faulty firewall rules.</span><span data-l="it">Trovo e risolvo i guasti su reti FWA e FTTH: verifico la raggiungibilità end-to-end (CPE/antenna, ONT, router) e individuo errori di configurazione, problemi DNS e regole firewall errate.</span></p><p class="proof"><span class="ptag"><span data-l="en">Proof</span><span data-l="it">Prova</span></span><span data-l="en">First diagnosis in under 5 minutes, most incidents resolved in about 10, and ~80% resolved remotely without an on-site visit.</span><span data-l="it">Prima diagnosi in meno di 5 minuti, la maggior parte dei guasti risolta in circa 10, e l'80% risolto da remoto senza intervento sul posto.</span></p></article><article class="tile  rv"><svg class="tart" viewBox="0 0 260 150" aria-hidden="true"><g class="wedges"><path class="wedge w0" d="M64 40 L95.1 -75.9 A120 120 0 0 1 172.8 -10.7 Z"/><path class="wedge w1" d="M64 40 L176.8 -1.0 A120 120 0 0 1 167.9 100.0 Z"/><path class="wedge w2" d="M64 40 L162.3 108.8 A120 120 0 0 1 74.5 159.5 Z"/></g>
+<path class="lat" d="M50 146 L60 46 M78 146 L68 46 M50.0 146.0 L76.3 129.3 M78.0 146.0 L51.7 129.3 M51.7 129.3 L76.3 129.3 M51.7 129.3 L74.7 112.7 M76.3 129.3 L53.3 112.7 M53.3 112.7 L74.7 112.7 M53.3 112.7 L73.0 96.0 M74.7 112.7 L55.0 96.0 M55.0 96.0 L73.0 96.0 M55.0 96.0 L71.3 79.3 M73.0 96.0 L56.7 79.3 M56.7 79.3 L71.3 79.3 M56.7 79.3 L69.7 62.7 M71.3 79.3 L58.3 62.7 M58.3 62.7 L69.7 62.7 M58.3 62.7 L68.0 46.0 M69.7 62.7 L60.0 46.0 M60.0 46.0 L68.0 46.0"/><path class="lat" d="M213 146 L219 78 M231 146 L225 78 M213.0 146.0 L229.5 129.0 M231.0 146.0 L214.5 129.0 M214.5 129.0 L229.5 129.0 M214.5 129.0 L228.0 112.0 M229.5 129.0 L216.0 112.0 M216.0 112.0 L228.0 112.0 M216.0 112.0 L226.5 95.0 M228.0 112.0 L217.5 95.0 M217.5 95.0 L226.5 95.0 M217.5 95.0 L225.0 78.0 M226.5 95.0 L219.0 78.0 M219.0 78.0 L225.0 78.0"/>
+<g class="ant"><rect x="55" y="30" width="5" height="16" rx="1.5"/><rect x="61.5" y="28" width="5" height="18" rx="1.5"/><rect x="68" y="30" width="5" height="16" rx="1.5"/></g>
+<g class="dish"><ellipse cx="212" cy="76" rx="4" ry="9"/><line x1="216" y1="76" x2="222" y2="76"/></g>
+<path class="link" id="ptp" d="M70 50 L208 76"/><circle class="packet" r="3.5"><animateMotion dur="1.8s" repeatCount="indefinite" path="M70 50 L208 76"/></circle>
+<text x="150" y="58" class="mono">PtP</text><text x="132" y="128" class="mono">PtMP</text></svg><div class="big">RF</div><h3><span data-l="en">Wireless &amp; access networks</span><span data-l="it">Reti wireless e di accesso</span></h3><p><span data-l="en">I keep radio links running efficiently: RF interference analysis, frequency planning and firmware upgrades.</span><span data-l="it">Mantengo efficienti i collegamenti radio: analisi delle interferenze RF, pianificazione delle frequenze e aggiornamenti firmware.</span></p><p class="proof"><span class="ptag"><span data-l="en">Proof</span><span data-l="it">Prova</span></span><span data-l="en">Re-planned frequencies on MikroTik and RADWIN sectors, in some cases more than doubling sector throughput (e.g. from ~30 to ~70 Mbps).</span><span data-l="it">Ripianificazione delle frequenze sui settori MikroTik e RADWIN, in alcuni casi più che raddoppiando il throughput del settore (ad esempio da circa 30 a circa 70 Mbps).</span></p></article><article class="tile  rv"><svg class="tart" viewBox="0 0 324 156" aria-hidden="true"><path class="wire" d="M64 40 H116"/><path class="wire" d="M188 40 H228"/><path class="wire" d="M262 55 V80 H214 V100"/><path class="wire" d="M262 55 V80 H286 V100"/><text x="90" y="30" text-anchor="middle" class="t3">WAN</text><text x="90" y="54" text-anchor="middle" class="t3">PPPoE</text><text x="208" y="30" text-anchor="middle" class="t3">LAN</text><text x="300" y="76" text-anchor="middle" class="t3">VLAN 20</text><circle class="packet" r="3.2"><animateMotion dur="3.4s" repeatCount="indefinite" path="M34 40 H262 V80 H214 V100"/></circle><circle class="packet" r="3.2"><animateMotion dur="3.4s" begin="-1.7s" repeatCount="indefinite" path="M34 40 H262 V80 H286 V100"/></circle><g class="nd"><rect x="4" y="25" width="60" height="30" rx="6"/><text x="34.0" y="38" text-anchor="middle" class="t1">CPE</text><text x="34.0" y="49" text-anchor="middle" class="t2">antenna</text></g><g class="nd"><rect x="116" y="25" width="72" height="30" rx="6"/><text x="152.0" y="38" text-anchor="middle" class="t1">Router</text><text x="152.0" y="49" text-anchor="middle" class="t2">192.168.1.1</text></g><g class="nd"><rect x="228" y="25" width="68" height="30" rx="6"/><text x="262.0" y="38" text-anchor="middle" class="t1">Switch</text><text x="262.0" y="49" text-anchor="middle" class="t2">PoE</text></g><g class="nd"><rect x="180" y="100" width="68" height="30" rx="6"/><text x="214.0" y="113" text-anchor="middle" class="t1">AP</text><text x="214.0" y="124" text-anchor="middle" class="t2">Wi-Fi</text></g><g class="nd"><rect x="252" y="100" width="68" height="30" rx="6"/><text x="286.0" y="113" text-anchor="middle" class="t1">Phone</text><text x="286.0" y="124" text-anchor="middle" class="t2">VoIP</text></g><text x="4" y="150" class="t3 file">customer-042.drawio</text></svg><div class="big">~50</div><h3><span data-l="en">Network documentation</span><span data-l="it">Documentazione di rete</span></h3><p><span data-l="en">I make networks readable at a glance, so anyone on the team knows where to look when something breaks.</span><span data-l="it">Rendo le reti leggibili a colpo d'occhio, così chiunque nel team sa dove intervenire quando qualcosa si guasta.</span></p><p class="proof"><span class="ptag"><span data-l="en">Proof</span><span data-l="it">Prova</span></span><span data-l="en">Built and maintain ~50 customer network maps in Draw.io, using a custom library of the actual installed devices.</span><span data-l="it">Circa 50 mappe di rete dei clienti create e mantenute aggiornate in Draw.io, con una libreria personalizzata degli apparati realmente installati.</span></p></article><article class="tile wide rv"><svg class="tart" viewBox="0 0 520 150" aria-hidden="true"><path class="flow" d="M76 62 H436"/><circle class="packet" r="3.5"><animateMotion dur="3s" begin="-0s" repeatCount="indefinite" path="M76 62 H436"/></circle><circle class="packet" r="3.5"><animateMotion dur="3s" begin="-1s" repeatCount="indefinite" path="M76 62 H436"/></circle><circle class="packet" r="3.5"><animateMotion dur="3s" begin="-2s" repeatCount="indefinite" path="M76 62 H436"/></circle><g class="ic"><rect x="28" y="32" width="36" height="46" rx="4"/><rect x="38" y="40" width="36" height="46" rx="4" class="front"/><line x1="44" y1="50" x2="66" y2="50"/><line x1="44" y1="58" x2="66" y2="58"/><line x1="44" y1="66" x2="66" y2="66"/><line x1="44" y1="74" x2="66" y2="74"/></g><rect class="vecbg" x="125" y="35" width="51" height="51" rx="4"/><g class="vec"><rect x="128" y="38" width="9" height="9" rx="2" style="opacity:0.25"/><rect x="140" y="38" width="9" height="9" rx="2" style="opacity:0.9"/><rect x="152" y="38" width="9" height="9" rx="2" style="opacity:0.5"/><rect x="164" y="38" width="9" height="9" rx="2" style="opacity:0.7"/><rect x="128" y="50" width="9" height="9" rx="2" style="opacity:0.35"/><rect x="140" y="50" width="9" height="9" rx="2" style="opacity:1"/><rect x="152" y="50" width="9" height="9" rx="2" style="opacity:0.6"/><rect x="164" y="50" width="9" height="9" rx="2" style="opacity:0.3"/><rect x="128" y="62" width="9" height="9" rx="2" style="opacity:0.8"/><rect x="140" y="62" width="9" height="9" rx="2" style="opacity:0.45"/><rect x="152" y="62" width="9" height="9" rx="2" style="opacity:0.95"/><rect x="164" y="62" width="9" height="9" rx="2" style="opacity:0.55"/><rect x="128" y="74" width="9" height="9" rx="2" style="opacity:0.25"/><rect x="140" y="74" width="9" height="9" rx="2" style="opacity:0.9"/><rect x="152" y="74" width="9" height="9" rx="2" style="opacity:0.5"/><rect x="164" y="74" width="9" height="9" rx="2" style="opacity:0.7"/></g><g class="ic"><path d="M232 44 V80 A24 8 0 0 0 280 80 V44"/><ellipse cx="256" cy="44" rx="24" ry="8"/><path d="M232 62 A24 8 0 0 0 280 62"/></g><circle class="dbdot" cx="244" cy="71" r="2"/><circle class="dbdot" cx="252" cy="71" r="2"/><circle class="dbdot" cx="260" cy="71" r="2"/><circle class="dbdot" cx="268" cy="71" r="2"/><g class="ic"><line x1="346" y1="36" x2="346" y2="42"/><line x1="346" y1="82" x2="346" y2="88"/><line x1="334" y1="48" x2="340" y2="48"/><line x1="380" y1="48" x2="386" y2="48"/><line x1="355" y1="36" x2="355" y2="42"/><line x1="355" y1="82" x2="355" y2="88"/><line x1="334" y1="57" x2="340" y2="57"/><line x1="380" y1="57" x2="386" y2="57"/><line x1="364" y1="36" x2="364" y2="42"/><line x1="364" y1="82" x2="364" y2="88"/><line x1="334" y1="66" x2="340" y2="66"/><line x1="380" y1="66" x2="386" y2="66"/><line x1="373" y1="36" x2="373" y2="42"/><line x1="373" y1="82" x2="373" y2="88"/><line x1="334" y1="75" x2="340" y2="75"/><line x1="380" y1="75" x2="386" y2="75"/><rect x="340" y="42" width="40" height="40" rx="6" class="front"/></g><text x="360" y="66" class="chipt" text-anchor="middle">LLM</text><g class="ic"><path class="front" d="M438 40 h52 a6 6 0 0 1 6 6 v28 a6 6 0 0 1 -6 6 h-34 l-10 9 v-9 h-8 a6 6 0 0 1 -6 -6 v-28 a6 6 0 0 1 6 -6 z"/><line x1="448" y1="54" x2="482" y2="54"/><line x1="448" y1="64" x2="472" y2="64"/></g><circle class="hot" cx="490" cy="40" r="5"/><text x="50" y="114" text-anchor="middle" class="mono">docs</text><text x="152" y="114" text-anchor="middle" class="mono">embeddings</text><text x="256" y="114" text-anchor="middle" class="mono">vector DB</text><text x="360" y="114" text-anchor="middle" class="mono">local LLM</text><text x="464" y="114" text-anchor="middle" class="mono">answer</text></svg><div class="big">AI</div><h3><span data-l="en">Automation &amp; AI</span><span data-l="it">Automazione e AI</span></h3><p><span data-l="en">I'm teaching myself how AI can speed up technical work, from RAG systems to models that run locally.</span><span data-l="it">Studio da autodidatta come l'AI può velocizzare il lavoro tecnico, dai sistemi RAG ai modelli eseguiti in locale.</span></p><p class="proof"><span class="ptag"><span data-l="en">Proof</span><span data-l="it">Prova</span></span><span data-l="en">Self-study of RAG, embeddings, vector databases, local LLMs (Ollama) and Python, with AI-assisted development.</span><span data-l="it">Studio autonomo di RAG, embedding, database vettoriali, LLM locali (Ollama) e Python, con sviluppo assistito dall'AI.</span></p></article></div>
+    </div>
+  </section>
+
+  <section class="band grey" id="story">
+    <svg class="bgart route" viewBox="0 0 1200 300" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+<path class="arc-bg" d="M1120 250 C 1060 60, 900 40, 830 140"/><path class="arc" d="M1120 250 C 1060 60, 900 40, 830 140"/>
+<circle class="mover" r="5"><animateMotion dur="4s" repeatCount="indefinite" path="M1120 250 C 1060 60, 900 40, 830 140"/></circle>
+<g class="pinw"><circle cx="1120" cy="250" r="16" class="halo"/><circle cx="1120" cy="250" r="6" class="pin"/></g>
+<g class="pinw"><circle cx="830" cy="140" r="16" class="halo"/><circle cx="830" cy="140" r="6" class="pin2"/></g>
+<text x="1120" y="286" text-anchor="middle" class="place"><tspan data-l="en">India · 2010</tspan><tspan data-l="it">India · 2010</tspan></text>
+<text x="830" y="176" text-anchor="middle" class="place"><tspan data-l="en">Italy · 2011</tspan><tspan data-l="it">Italia · 2011</tspan></text></svg>
+    <div class="col">
+      <div class="rv">
+        <p class="eyebrow"><span data-l="en">Story</span><span data-l="it">Storia</span></p>
+        <h2 class="h2"><span data-l="en">From A1 Italian <span class="dim">to network engineering.</span></span><span data-l="it">Dall'italiano A1 <span class="dim">al network engineering.</span></span></h2>
+      </div>
+      <p class="story-p rv"><span data-l="en">I moved from India to Italy through family reunification. My diploma wasn't recognized, I didn't speak the language, and I had no one to explain how the school system worked. <span class="dim">So I started over from scratch.</span></span><span data-l="it">Sono arrivato in Italia dall'India con il ricongiungimento familiare. Il mio diploma non era riconosciuto, non parlavo la lingua e non avevo nessuno che mi spiegasse come funzionava il sistema scolastico. <span class="dim">Così sono ripartito da zero.</span></span></p>
+      <p class="lead rv"><span data-l="en">Much of my early tech knowledge, and a lot of my Italian, came from tech review videos on YouTube.</span><span data-l="it">Ho imparato gran parte delle mie prime conoscenze tecnologiche, e molto del mio italiano, guardando video di recensioni tech su YouTube.</span></p>
+      <ol class="tl"><li class="rv"><span class="yr">2010</span><div><h3><span data-l="en">Technical support at Bharti Airtel, India</span><span data-l="it">Supporto tecnico presso Bharti Airtel, India</span></h3><p><span data-l="en">Inbound support for a major telecom operator: connectivity issues, APN setup, data plans.</span><span data-l="it">Supporto inbound per un grande operatore telefonico: problemi di connessione, configurazione APN, piani dati.</span></p></div></li><li class="rv"><span class="yr">2011</span><div><h3><span data-l="en">Arrived in Italy, started with A1 Italian</span><span data-l="it">Arrivo in Italia, corso di italiano A1</span></h3><p><span data-l="en">I then completed middle school through evening classes, to earn a qualification recognized in Italy.</span><span data-l="it">Ho poi conseguito la licenza media alla scuola serale, per avere un titolo di studio riconosciuto in Italia.</span></p></div></li><li class="rv"><span class="yr">2017</span><div><h3><span data-l="en">Technical diploma, 95/100, finishing two years in one</span><span data-l="it">Diploma tecnico con 95/100, due anni in uno</span></h3><p><span data-l="en">I started high school as an adult, in a class of much younger students. In year four I nearly quit. Instead I passed the 4th-year, admission and final exams back to back.</span><span data-l="it">Ho iniziato le superiori da adulto, in una classe di ragazzi molto più giovani. Al quarto anno stavo per rinunciare. Invece ho superato di fila gli esami del quarto anno, l'ammissione e la maturità.</span></p></div></li><li class="rv"><span class="yr">2017</span><div><h3><span data-l="en">Computer Science at the University of Camerino</span><span data-l="it">Informatica all'Università di Camerino</span></h3><p><span data-l="en">Paused after two years for financial reasons.</span><span data-l="it">Interrotta dopo due anni per motivi economici.</span></p></div></li><li class="rv"><span class="yr">2020</span><div><h3><span data-l="en">Network Technician at Fidoka</span><span data-l="it">Network Technician presso Fidoka</span></h3><p><span data-l="en">Six years in network support, from customer troubleshooting to wireless link maintenance.</span><span data-l="it">Sei anni di supporto tecnico di rete, dal troubleshooting per i clienti alla manutenzione dei collegamenti wireless.</span></p></div></li></ol>
+      <p class="quote rv"><span data-l="en">I learn fast <span class="dim">because I've always had to.</span></span><span data-l="it">Imparo in fretta <span class="dim">perché ho sempre dovuto farlo.</span></span></p>
+    </div>
+  </section>
+
+  <section class="band" id="experience">
+    <div class="col">
+      <div class="rv">
+        <p class="eyebrow"><span data-l="en">Experience</span><span data-l="it">Esperienza</span></p>
+        <h2 class="h2"><span data-l="en">Where I've <span class="dim">done it.</span></span><span data-l="it">Dove l'ho <span class="dim">dimostrato.</span></span></h2>
+      </div>
+      <article class="job rv" style="background:var(--band)">
+        <div class="job-top"><h3>Network Technician</h3><span class="when"><span data-l="en">Jan 2020 – Present</span><span data-l="it">Gen 2020 – oggi</span></span></div>
+        <div class="org">Fidoka S.r.l. Società Benefit · <span data-l="en">Marche &amp; Umbria, Italy</span><span data-l="it">Marche e Umbria, Italia</span></div>
+        <ul><li><span data-l="en">Tier 1–2 and on-site support for business and residential customers on FWA and FTTH networks, handling ~50 tickets per week.</span><span data-l="it">Supporto di primo e secondo livello e on-site ai clienti business e privati su reti FWA e FTTH, con circa 50 ticket a settimana.</span></li><li><span data-l="en">Automated overnight speed tests (RouterOS scheduler and scripts) and SNMP monitoring for customers reporting night-time slowdowns, separating network issues from saturation of the customer's subscribed bandwidth.</span><span data-l="it">Speedtest automatizzati nelle ore notturne (scheduler e script RouterOS) e monitoraggio SNMP per i clienti che segnalano rallentamenti in quella fascia oraria, distinguendo i problemi di rete dalla saturazione della banda del profilo sottoscritto.</span></li><li><span data-l="en">Deploy and configure MikroTik and RADWIN sector links, Ubiquiti PtP links and TP-Link routers; manage Omada routers, access points and radio links and UniFi access points through their controllers; monitor the network with The Dude.</span><span data-l="it">Installazione e configurazione di settori MikroTik e RADWIN, ponti PtP Ubiquiti e router TP-Link; gestione tramite controller di router, access point e ponti radio Omada e degli access point UniFi; monitoraggio della rete con The Dude.</span></li><li><span data-l="en">Indoor Wi-Fi coverage tests, detection of network loops in customers' LANs, IP camera integration with alarm systems and first-line VoIP troubleshooting on 3CX and FreePBX.</span><span data-l="it">Test di copertura Wi-Fi negli ambienti interni, individuazione di loop nelle reti interne dei clienti, integrazione di telecamere IP con i sistemi d'allarme e troubleshooting VoIP di primo livello su 3CX e FreePBX.</span></li><li><span data-l="en">Technical support in Italian and English.</span><span data-l="it">Assistenza tecnica in italiano e in inglese.</span></li></ul>
+      </article>
+      <div class="earlier">
+        <div class="rv" style="background:var(--band)"><h4><span data-l="en">Telecom Consultant (Fastweb)</span><span data-l="it">Consulente Fastweb</span></h4><p class="meta">OF Team, Gruppo Arco · 2017 – 2018</p><p><span data-l="en">Technical support and service advisory for Fastweb customers.</span><span data-l="it">Supporto tecnico e consulenza sui servizi per i clienti Fastweb.</span></p></div>
+        <div class="rv" style="background:var(--band)"><h4><span data-l="en">Customer Technical Support</span><span data-l="it">Supporto tecnico clienti</span></h4><p class="meta">Bharti Airtel, India · 2010</p><p><span data-l="en">Inbound support: mobile data connectivity, APN configuration, plan recommendations.</span><span data-l="it">Supporto inbound: connettività dati mobile, configurazione APN, consigli sui piani tariffari.</span></p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band grey" id="skills">
+    
+    <div class="col">
+      <div class="rv">
+        <p class="eyebrow"><span data-l="en">Skills</span><span data-l="it">Competenze</span></p>
+        <h2 class="h2"><span data-l="en">What I <span class="dim">work with.</span></span><span data-l="it">Con cosa <span class="dim">lavoro.</span></span></h2>
+      </div>
+      <div class="skills"><div class="skg rv"><h3><span data-l="en">Switching &amp; IP networking</span><span data-l="it">Switching e reti IP</span></h3><ul class="pills"><li>VLAN</li><li>Bridging</li><li>RSTP / STP</li><li><span data-l="en">Managed switches</span><span data-l="it">Switch gestiti</span></li><li>Subnetting</li><li><span data-l="en">DHCP (pools, static leases)</span><span data-l="it">DHCP (pool, lease statici)</span></li><li><span data-l="en">Static IPs &amp; gateways</span><span data-l="it">IP statici e gateway</span></li><li>DNS</li><li>NAT · CGNAT</li><li>PPPoE</li></ul></div><div class="skg rv"><h3><span data-l="en">Access &amp; wireless networks</span><span data-l="it">Reti di accesso e wireless</span></h3><ul class="pills"><li>FWA</li><li>FTTH / ONT</li><li>PtP · PtMP</li><li>Nstreme</li><li>Nv2</li><li><span data-l="en">RF interference analysis</span><span data-l="it">Analisi delle interferenze RF</span></li><li><span data-l="en">Frequency planning</span><span data-l="it">Pianificazione delle frequenze</span></li><li><span data-l="en">Wireless backbone maintenance</span><span data-l="it">Manutenzione del backbone wireless</span></li><li><span data-l="en">Wi-Fi coverage testing</span><span data-l="it">Test di copertura Wi-Fi</span></li></ul></div><div class="skg rv"><h3><span data-l="en">Security &amp; remote access</span><span data-l="it">Sicurezza e accesso remoto</span></h3><ul class="pills"><li><span data-l="en">MikroTik firewall (filter &amp; NAT rules)</span><span data-l="it">Firewall MikroTik (regole filter e NAT)</span></li><li>WireGuard</li><li>IPsec</li><li>SSH</li><li>Telnet / MAC Telnet</li></ul></div><div class="skg rv"><h3><span data-l="en">Tools</span><span data-l="it">Strumenti</span></h3><ul class="pills"><li><span data-l="en">RouterOS CLI</span><span data-l="it">RouterOS da riga di comando</span></li><li>WinBox</li><li><span data-l="en">RouterOS scripting</span><span data-l="it">Scripting RouterOS</span></li><li>The Dude</li><li>SNMP</li><li>Draw.io</li><li>Linux</li><li>Wireshark</li></ul></div><div class="skg rv"><h3><span data-l="en">Equipment</span><span data-l="it">Apparati</span></h3><ul class="pills"><li>MikroTik</li><li>RADWIN</li><li>Ubiquiti</li><li>TP-Link</li><li><span data-l="en">Omada &amp; UniFi controllers</span><span data-l="it">Controller Omada e UniFi</span></li></ul></div><div class="skg rv"><h3><span data-l="en">VoIP</span><span data-l="it">VoIP</span></h3><ul class="pills"><li>3CX</li><li>FreePBX</li><li>SIP</li><li><span data-l="en">SIP registration troubleshooting</span><span data-l="it">Troubleshooting registrazione SIP</span></li><li>Snom</li><li>Grandstream</li><li>Gigaset</li></ul></div><div class="skg rv"><h3><span data-l="en">AI &amp; automation</span><span data-l="it">AI e automazione</span></h3><ul class="pills"><li><span data-l="en">Python (AI-assisted)</span><span data-l="it">Python (sviluppo assistito da AI)</span></li><li>RAG</li><li><span data-l="en">Embeddings</span><span data-l="it">Embedding</span></li><li><span data-l="en">Vector databases</span><span data-l="it">Database vettoriali</span></li><li><span data-l="en">Local LLMs</span><span data-l="it">LLM locali</span></li><li>Ollama</li></ul></div><div class="skg rv"><h3><span data-l="en">Working style</span><span data-l="it">Modo di lavorare</span></h3><ul class="pills"><li><span data-l="en">Customer communication</span><span data-l="it">Comunicazione col cliente</span></li><li><span data-l="en">Requirements analysis</span><span data-l="it">Analisi dei requisiti</span></li><li><span data-l="en">Multicultural teams</span><span data-l="it">Team multiculturali</span></li><li><span data-l="en">Self-directed learning</span><span data-l="it">Apprendimento autonomo</span></li></ul></div></div>
+    </div>
+  </section>
+
+  <section class="band" id="education">
+    <div class="col">
+      <div class="rv">
+        <p class="eyebrow"><span data-l="en">Education</span><span data-l="it">Formazione</span></p>
+        <h2 class="h2"><span data-l="en">Always <span class="dim">learning.</span></span><span data-l="it">Sempre <span class="dim">in formazione.</span></span></h2>
+      </div>
+      <div class="edu">
+        <div class="rv" style="background:var(--band)"><span class="k">2017</span><h4><span data-l="en">Technical diploma, Maintenance &amp; Technical Assistance</span><span data-l="it">Diploma di Manutenzione e Assistenza Tecnica</span></h4><p><span data-l="en">IPSIA “Renzo Frau”, Sarnano · completed years 4 and 5 in a single year</span><span data-l="it">IPSIA “Renzo Frau”, Sarnano · quarto e quinto anno completati in un solo anno</span></p><span class="badge">95/100</span></div>
+        <div class="rv" style="background:var(--band)"><span class="k">2017 – 2019</span><h4><span data-l="en">Computer Science studies</span><span data-l="it">Studi in Informatica</span></h4><p><span data-l="en">University of Camerino (UNICAM)</span><span data-l="it">Università di Camerino (UNICAM)</span></p></div>
+      </div>
+      <div class="langs rv">
+        <div><b><span data-l="en">English</span><span data-l="it">Inglese</span></b><span><span data-l="en">Fluent</span><span data-l="it">Fluente</span></span></div>
+        <div><b><span data-l="en">Italian</span><span data-l="it">Italiano</span></b><span><span data-l="en">Fluent</span><span data-l="it">Fluente</span></span></div>
+        <div><b>Hindi</b><span><span data-l="en">Fluent</span><span data-l="it">Fluente</span></span></div>
+        <div><b>Punjabi</b><span><span data-l="en">Native</span><span data-l="it">Madrelingua</span></span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band grey contact" id="contact">
+    <div class="col">
+      <p class="eyebrow"><span data-l="en">Contact</span><span data-l="it">Contatti</span></p>
+      <h2 class="h2"><span data-l="en">Let's connect.</span><span data-l="it">Restiamo in contatto.</span></h2>
+      <p class="lead"><span data-l="en">For professional opportunities or collaborations, email is the fastest way to reach me.</span><span data-l="it">Per opportunità professionali o collaborazioni, il modo più rapido per contattarmi è l'email.</span></p>
+      <div class="mailrow">
+        <span class="mail" id="mail">kumarsunilcareer@gmail.com</span>
+        <button class="pill ghost" type="button" id="copy"><span data-l="en">Copy</span><span data-l="it">Copia</span></button>
+        <span class="copied" id="copied" aria-live="polite"></span>
+      </div>
+      <div class="ctas">
+        <a class="more" href="https://www.linkedin.com/in/imsunil92/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="more" href="https://github.com/imsunil92" target="_blank" rel="noopener">GitHub</a>
+        <a class="more" data-l="en" href="cv/Sunil_Kumar_CV_EN.pdf" target="_blank" rel="noopener">Download CV</a>
+        <a class="more" data-l="it" href="cv/Sunil_Kumar_CV_IT.pdf" target="_blank" rel="noopener">Scarica il CV</a>
+      </div>
+      <div class="hs-wrap rv"><svg class="hs" viewBox="0 0 680 200" role="img" aria-label="A TCP handshake between you and Sunil: SYN, SYN-ACK, ACK, then connected">
+<defs><linearGradient id="hsg" x1="0" x2="1"><stop offset="0" class="g0"/><stop offset="1" class="g1"/></linearGradient></defs>
+<line class="lnk" x1="150" y1="80" x2="530" y2="80"/><line class="lnk-ok" x1="150" y1="80" x2="530" y2="80"/>
+<g class="node"><circle cx="100" cy="80" r="46" class="ring"/><circle cx="100" cy="80" r="38" class="face"/><text x="100" y="86" text-anchor="middle" class="ini"><tspan data-l="en">You</tspan><tspan data-l="it">Tu</tspan></text></g>
+<g class="node"><circle cx="580" cy="80" r="46" class="ring"/><circle cx="580" cy="80" r="38" class="face me"/><text x="580" y="87" text-anchor="middle" class="ini me">SK</text></g>
+<g class="pk p1"><rect x="150" y="66" width="70" height="28" rx="14"/><text x="185" y="85" text-anchor="middle">SYN</text></g>
+<g class="pk p2"><rect x="414" y="66" width="116" height="28" rx="14"/><text x="472" y="85" text-anchor="middle">SYN-ACK</text></g>
+<g class="pk p3"><rect x="150" y="66" width="70" height="28" rx="14"/><text x="185" y="85" text-anchor="middle">ACK</text></g>
+<g class="ok"><rect x="250" y="146" width="180" height="36" rx="18"/><circle cx="276" cy="164" r="5"/><text x="350" y="169" text-anchor="middle"><tspan data-l="en">Connected · 4 ms</tspan><tspan data-l="it">Connessi · 4 ms</tspan></text></g>
+</svg></div>
+    </div>
+  </section>
+</main>
+
+<div class="col">
+  <footer><span>© 2026 Sunil Kumar</span><span><span data-l="en">Marche, Italy</span><span data-l="it">Marche, Italia</span></span></footer>
+</div>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function getL() { try { return localStorage.getItem("sk-lang"); } catch (e) { return null; } }
+  function setL(v) { try { localStorage.setItem("sk-lang", v); } catch (e) {} }
+  function apply(l) {
+    root.classList.toggle("lang-it", l === "it"); root.lang = l;
+    document.querySelectorAll(".lang button").forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.set === l)); });
+  }
+  var lang = getL() || ((navigator.language || "en").toLowerCase().indexOf("it") === 0 ? "it" : "en");
+  apply(lang);
+  document.querySelectorAll(".lang button").forEach(function (b) { b.addEventListener("click", function () { lang = b.dataset.set; apply(lang); setL(lang); }); });
+
+  /* theme toggle: follows the device until the visitor picks one */
+  var tb = document.getElementById("theme-btn");
+  function isDark() { var a = root.getAttribute("data-theme"); if (a) return a === "dark"; return !!(window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches); }
+  function labelTheme() { var d = isDark(); tb.setAttribute("aria-label", lang === "it" ? (d ? "Passa al tema chiaro" : "Passa al tema scuro") : (d ? "Switch to light mode" : "Switch to dark mode")); }
+  tb.addEventListener("click", function () { var next = isDark() ? "light" : "dark"; root.setAttribute("data-theme", next); try { localStorage.setItem("sk-theme", next); } catch (e) {} labelTheme(); });
+  labelTheme();
+
+  var copied = document.getElementById("copied");
+  document.getElementById("copy").addEventListener("click", function () {
+    var m = document.getElementById("mail");
+    function sel() { var r = document.createRange(); r.selectNodeContents(m); var s = window.getSelection(); s.removeAllRanges(); s.addRange(r); copied.textContent = lang === "it" ? "Selezionata" : "Selected"; }
+    try { navigator.clipboard.writeText(m.textContent.trim()).then(function () { copied.textContent = lang === "it" ? "Copiata ✓" : "Copied ✓"; }, sel); } catch (e) { sel(); }
+  });
+
+  if (!reduce && "IntersectionObserver" in window) {
+    var els = document.querySelectorAll(".rv"), vh = window.innerHeight || 800;
+    var io = new IntersectionObserver(function (en) { en.forEach(function (e) { if (e.isIntersecting) { e.target.classList.remove("pre"); io.unobserve(e.target); } }); }, { rootMargin: "0px 0px -6% 0px" });
+    els.forEach(function (el) { if (el.getBoundingClientRect().top > vh) { el.classList.add("pre"); io.observe(el); } });
+    setTimeout(function () { els.forEach(function (el) { el.classList.remove("pre"); }); }, 6000);
+  }
+
+})();
+</script>
+</body>
+</html>
